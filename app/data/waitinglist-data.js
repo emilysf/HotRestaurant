@@ -7,12 +7,8 @@
 
 
 var waitingArray = [
-	{
-		customerName: "Saima",
-		customerEmail: "saima@gmail.com",
-		phoneNumber: "979-587-0887",
-		customerID: "saimacool"
-	}
+  {name: 'Laurie', phone: '407-234-5678', email:'laurie@gmail.com', uniqueId:'Ann'},
+  {name: 'Alan', phone: '407-333-4444', email:'alan@gmail.com', uniqueId: 'Al'}
 ];
 
 

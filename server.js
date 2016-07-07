@@ -1,5 +1,15 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+var path = require('path');
+
 var app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.text());
+app.use(bodyParser.json({type:'application/vnd.api+json'}));
+
+require('./app/routing/api-routes.js')(app); 
 
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -11,7 +21,7 @@ var reservedArray = [
   {name: 'Walter', phone:'407-123-4567', email: 'walter@gmail.com', uniqueId:'Walt'}
 ];
 
-var waitlistArray = [
+var waitingArray = [
   {name: 'Laurie', phone: '407-234-5678', email:'laurie@gmail.com', uniqueId:'Ann'},
   {name: 'Alan', phone: '407-333-4444', email:'alan@gmail.com', uniqueId: 'Al'}
 ];
@@ -28,7 +38,7 @@ app.get('/reserve', function(req,res) {
 app.get('/tables', function(req, res) {
   res.render('tables', {
     reserved: reservedArray,
-    waitlist: waitlistArray
+    waitlist: waitingArray
   });
 });
 

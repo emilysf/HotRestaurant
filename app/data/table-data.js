@@ -6,15 +6,11 @@
 // ===============================================================================
 
 
-var tableArray = [
-	{
-		customerName: "Ahmed",
-		customerEmail: "afhaque89@gmail.com",
-		customerID: "afhaque89",
-		phoneNumber: "979-587-0887",
-
-	}
+var reservedArray = [
+  {name: 'Emily', phone: '407-555-3221', email: 'emily@gmail.com', uniqueId: 'Em'},
+  {name: 'Josh', phone: '407-335-6821', email: 'josh@gmail.com', uniqueId: 'Joshy'},
+  {name: 'Walter', phone:'407-123-4567', email: 'walter@gmail.com', uniqueId:'Walt'}
 ];
 
 // Note how we export the array. This makes it accessible to other files using require. 
-module.exports = tableArray; 
+module.exports = reservedArray; 
