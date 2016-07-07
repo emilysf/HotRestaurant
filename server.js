@@ -5,33 +5,33 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-var icecreams = [
-  {name: 'vanilla', price: 10, awesomeness: 8, image: 'http://www.healthline.com/hlcmsresource/images/diabetesmine/wp-content/uploads/2012/07/Vanilla-Ice-Cream-Cone.jpg'},
-  {name: 'chocolate', price: 4, awesomeness: 3, image: 'http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2014/5/14/1/FNM_060114-Chocolate-Ice-Cream-Recipe_s4x3.jpg'},
-  {name: 'banana', price: 1, awesomeness: 1, image: 'http://www.gimmesomeoven.com/wp-content/uploads/2010/07/brown-sugar-spiced-banana-ice-cream.jpg'},
-  {name: 'greentea', price: 5, awesomeness: 7, image: 'https://i.ytimg.com/vi/_mkdzL75SyA/hqdefault.jpg'},
-  {name: 'jawbreakers', price: 6, awesomeness: 2, image: 'http://cf.cravingsofalunatic.com/wp-content/uploads/2011/09/cravings-of-a-lunatic-jawbreaker-ice-cream-81.jpg'},
+var reservedArray = [
+  {name: 'Emily', phone: '407-555-3221', email: 'emily@gmail.com', uniqueId: 'Em'},
+  {name: 'Josh', phone: '407-335-6821', email: 'josh@gmail.com', uniqueId: 'Joshy'},
+  {name: 'Walter', phone:'407-123-4567', email: 'walter@gmail.com', uniqueId:'Walt'}
+];
+
+var waitlistArray = [
+  {name: 'Laurie', phone: '407-234-5678', email:'laurie@gmail.com', uniqueId:'Ann'},
+  {name: 'Alan', phone: '407-333-4444', email:'alan@gmail.com', uniqueId: 'Al'}
 ];
 
 
-app.get('/icecreams', function(req,res) {
-    res.render('AllIcecreams', {
-      flavors: icecreams,
-      eater: 'Emily'
-    });
+app.get('/', function(req,res) {
+    res.render('home');
 });
 
-app.get('/icecreams/:name', function(req, res) {
-	var flavor = req.params.name;
+app.get('/reserve', function(req,res) {
+  res.render('reserve');
+});
 
-    for(i = 0; i < icecreams.length; i++){
-    	if(flavor == icecreams[i].name) {
-    		res.render('flavor', {
-    			flavors: icecreams[i]
-    		});
-    	}
-    }
-})
+app.get('/tables', function(req, res) {
+  res.render('tables', {
+    reserved: reservedArray,
+    waitlist: waitlistArray
+  });
+});
+
 
 var port = 3000;
 app.listen(port);

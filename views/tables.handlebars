@@ -35,6 +35,14 @@
 						<h4 class="panel-title">Current Reservations</h4>
 					</div>
 					<div class="panel-body" id="tableSection">
+						{{#each reserved}}
+							<ul>
+								<li><h3>Customer Name: </h3><h4>{{name}}</h4></li>
+								<li><h3>Customer Phone Number: </h3><h4>{{phone}}</h4></li>
+								<li><h3>Customer Email: </h3><h4>{{email}}</h4></li>
+								<li><h3>Customer Unique ID: </h3><h4>{{uniqueId}}</h4></li>
+							</ul>
+						{{/each}}
 					</div>
 				</div>
 	
@@ -44,6 +52,14 @@
 						<h4 class="panel-title">Waiting List</h4>
 					</div>
 					<div class="panel-body" id="waitlistSection">
+						{{#each waitlist}}
+							<ul>
+								<li><h3>Customer Name: </h3><h4>{{name}}</h4></li>
+								<li><h3>Customer Phone Number: </h3><h4>{{phone}}</h4></li>
+								<li><h3>Customer Email: </h3><h4>{{email}}</h4></li>
+								<li><h3>Customer Unique ID: </h3><h4>{{uniqueId}}</h4></li>
+							</ul>
+						{{/each}}
 					</div>
 				</div>
 			</div>
