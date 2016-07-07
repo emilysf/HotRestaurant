@@ -31,6 +31,7 @@ module.exports = function(app){
 		res.json(waitListData);
 	});
 
+
 	// API POST Requests
 	// Below code handles when a user submits a form and thus submits data to the server.
 	// In each of the below cases, when a user submits form data (a JSON object)
@@ -54,6 +55,14 @@ module.exports = function(app){
 			res.json(false); // KEY LINE
 		}
 
+	});
+
+
+	app.get('/tables', function(req, res) {
+	    res.render('tables', {
+	      tableData: tableData,
+	      waitlistData: waitListData
+	    });
 	});
 
 	// ---------------------------------------------------------------------------
